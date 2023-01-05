@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root to: "homes#top"
 
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -11,4 +11,14 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :admin do
+    resources :items
+    resources :addresses
+    resources :cart_items
+    resources :customers
+    resources :genres
+    resources :order_details
+    resources :orders
+  end
 end

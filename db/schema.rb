@@ -15,6 +15,10 @@ ActiveRecord::Schema.define(version: 2023_01_04_092312) do
   create_table "addresses", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "postal_code"
+    t.string "address"
+    t.integer "customer_id"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -32,6 +36,9 @@ ActiveRecord::Schema.define(version: 2023_01_04_092312) do
   create_table "cart_items", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "item_id"
+    t.integer "customer_id"
+    t.integer "amount"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -50,21 +57,40 @@ ActiveRecord::Schema.define(version: 2023_01_04_092312) do
   create_table "genres", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "items", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre_id"
+    t.string "name"
+    t.integer "price"
+    t.text "introduction"
+    t.boolean "is_active"
   end
 
   create_table "order_details", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "order_id"
+    t.integer "item_id"
+    t.integer "price"
+    t.integer "amount"
+    t.integer "making_status"
   end
 
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id"
+    t.string "postal_code"
+    t.string "address"
+    t.string "name"
+    t.integer "shipping_cost"
+    t.integer "total_payment"
+    t.integer "payment_method"
+    t.integer "status"
   end
 
 end
