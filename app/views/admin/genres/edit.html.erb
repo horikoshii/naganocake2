@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>ジャンル編集</h2>
+  <div class="row">
+    <div class="col-lg-10">
+      <table class="table table-striped">
+        <tr>
+          <%= form_with model: @genre, url:admin_genre_path ,method: :patch do |f| %>
+          <td><%= f.label :ジャンル名 %></td>
+          <td><%= f.text_field :name %></td>
+          <td><%= f.submit '更新' %></td>
+          <% end %>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
