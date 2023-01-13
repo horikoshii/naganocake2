@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>商品一覧</h2>
+  <div class="row">
+
+    <div class="col-lg-5">
+      <table class="table table-striped">
+        <%= image_tag @item.image, size: "200x200" %>
+      </table>
+    </div>
+    <div class="col-lg-7">
+      <table class="table table-striped">
+        <tr>
+          <td>商品名</td>
+          <td></td>
+          <td><%= @item.name %></td>
+        </tr>
+        <tr>
+          <td>商品詳細</td>
+          <td></td>
+          <td><%= @item.introduction %></td>
+        </tr>
+        <tr>
+          <td>ジャンル</td>
+          <td></td>
+          <td><%= @item.genre.name %></td>
+        </tr>
+        <tr>
+          <td>税込価格<p>（税抜価格）</p></td>
+          <td></td>
+          <td><%= @item.with_tax_price %><p>(<%= @item.price %>)</p></td>
+        </tr>
+        <tr>
+          <td>販売ステータス</td>
+          <td></td>
+          <td><%= @item.is_active %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= button_to "編集する",edit_admin_item_path(@item.id), method: :get %></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
