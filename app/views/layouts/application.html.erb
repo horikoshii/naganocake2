@@ -46,14 +46,54 @@
                 <% elsif customer_signed_in? %>
 
                 <li class="nav-item">
-
+                  <li class="nav-item">
+                    <%= link_to(destroy_customer_session_path, method: :delete, class: 'nav-link text-white') do %>
+                    <strong> マイページ </strong>
+                    <% end %>
+                  </li>
+                </li>
+                
+                <li class="nav-item">
+                  <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
+                  <strong> 商品一覧 </strong>
+                  <% end %>
+                </li>
+                
+                <li class="nav-item">
+                  <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
+                  <strong> カート </strong>
+                  <% end %>
+                </li>
+                
+                <li class="nav-item">
+                  <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
+                  <strong> ログアウト </strong>
+                  <% end %>
                 </li>
 
                 <% else %>
 
                 <li class="nav-item">
                   <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
-                  <strong> ログアウト </strong>
+                  <strong> About </strong>
+                  <% end %>
+                </li>
+                
+                <li class="nav-item">
+                  <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
+                  <strong> 商品一覧 </strong>
+                  <% end %>
+                </li>
+                
+                <li class="nav-item">
+                  <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
+                  <strong> 新規登録 </strong>
+                  <% end %>
+                </li>
+                
+                <li class="nav-item">
+                  <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
+                  <strong> ログイン </strong>
                   <% end %>
                 </li>
 
