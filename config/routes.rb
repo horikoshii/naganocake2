@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   scope module: :customer do
+    get "item/index" => "items#serch",as: "serch"
     resources :items
     resources :addresses
     resources :cart_items
