@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td><h2>商品一覧</h2></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>購入日時</td>
+            <td>購入者</td>
+            <td>注文個数</td>
+            <td>注文ステータス</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M:%S'),admin_order_path(order.id) %> </td>
+              <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
+              <% @sum = 0 %>
+              <td>
+              <% order.order_details.each do |detail| %>
+              <% @sum += detail.amount.to_i %>
+              <% end %>
+              <%= @sum %>
+              </td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

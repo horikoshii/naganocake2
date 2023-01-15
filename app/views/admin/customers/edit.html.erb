@@ -1,0 +1,68 @@
+<div class="container">
+  <h2><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集　</h2>
+  <div class="row">
+    <div class="col-lg-7">
+      <%= form_with model: @customer, url: {controller: 'admin/customers', action: 'update'},method: :patch do |f| %>
+      <table class="table table-striped">
+        <tr>
+          <td>会員ID</td>
+          <td></td>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td></td>
+          <td>
+            <%= f.text_field :last_name %>
+            <%= f.text_field :first_name %>
+          </td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td></td>
+          <td>
+            <%= f.text_field :last_name_kana %>
+            <%= f.text_field :first_name_kana %>
+          </td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td></td>
+          <td><%= f.text_field :postal_code %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td></td>
+          <td><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td></td>
+          <td><%= f.text_field :telephone_number %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td></td>
+          <td><%= f.text_field :email %></td>
+        </tr>
+        <tr>
+          <td>会員ステータス</td>
+          <td></td>
+          <td>
+            <%= f.radio_button :is_active, true %>
+            <%= f.label :is_active, "有効" %>
+            <%= f.radio_button :is_active, false %>
+            <%= f.label :is_active, "退会" %>
+          </td>
+        </tr>
+        <td><%= f.submit '更新' %></td>
+        <% end %>
+        <tr>
+          <td></td>
+          <td><%=  %></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
