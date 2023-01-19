@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -52,19 +53,19 @@
                     <% end %>
                   </li>
                 </li>
-                
+
                 <li class="nav-item">
                   <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
                   <strong> 商品一覧 </strong>
                   <% end %>
                 </li>
-                
+
                 <li class="nav-item">
                   <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
                   <strong> カート </strong>
                   <% end %>
                 </li>
-                
+
                 <li class="nav-item">
                   <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
                   <strong> ログアウト </strong>
@@ -78,19 +79,19 @@
                   <strong> About </strong>
                   <% end %>
                 </li>
-                
+
                 <li class="nav-item">
                   <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
                   <strong> 商品一覧 </strong>
                   <% end %>
                 </li>
-                
+
                 <li class="nav-item">
                   <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
                   <strong> 新規登録 </strong>
                   <% end %>
                 </li>
-                
+
                 <li class="nav-item">
                   <%= link_to(destroy_admin_session_path, method: :delete, class: 'nav-link text-white') do %>
                   <strong> ログイン </strong>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "homes#top"
+  get "/about",to: "homes#about"
   get "/admin", to: "admin/homes#top"
 
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {

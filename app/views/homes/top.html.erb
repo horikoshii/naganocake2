@@ -41,20 +41,24 @@
     </tbody>
    </table>
    </div>
-
-   <div class="row">
-     <div class="col-lg-2">
-     </div>
-     <div class="col-lg-2">
-       <h4><strong>新着商品</strong></h4>
-     </div>
-     <% @items.each do |item| %>
-    <div class="col-lg-2">
+ </div>
+ <div class="row">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-8">
+     <h4><strong>新着商品</strong></h4>
+   </div>
+ </div>
+ <div class="row">
+   <div class="col-lg-3">
+   </div>
+   <% @items.each do |item| %>
+   <div class="col-lg-2">
+    <div class="new_items">
      <p><%= image_tag item.image, size: "200x200" %></p>
      <p><%= link_to item.name,item_path(item.id) %></p>
      <p><%= item.price %></p>
     </div>
-    <% end %>
    </div>
+  <% end %>
  </div>
 </div>

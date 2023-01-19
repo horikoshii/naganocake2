@@ -1,0 +1,11 @@
+
+
+.about{
+  font-size: 5rem;
+}
+
+.center-block{
+  box-sizing: border-box;
+  text-align: center;
+  margin: 100px;
+}
