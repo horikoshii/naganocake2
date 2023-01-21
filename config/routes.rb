@@ -14,8 +14,9 @@ Rails.application.routes.draw do
 }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  scope module: :customer do
+  scope module: :public do
     get "item/index" => "items#serch",as: "serch"
+    get "customers/my_page" => "customers#show", as: "my_page"
     resources :items
     resources :addresses
     resources :cart_items
