@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   scope module: :public do
     get "item/index" => "items#serch",as: "serch"
     get "customers/my_page" => "customers#show", as: "my_page"
+    get "customers/unsubscribe" => "customers#unsubscribe"
+    patch "customers/withdraw" => "customers#withdraw"
     resources :items
     resources :addresses
     resources :cart_items
