@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :items
     resources :addresses
     resources :cart_items
-    resources :customers
+    resources :customers,only: [:show,:edit,:update,:unsubscribe,:withdraw]
     resources :genres
     resources :order_details
     resources :orders

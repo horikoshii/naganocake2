@@ -1,0 +1,14 @@
+<div class="container0">
+  <div class="unsubscribe">
+   <h2><strong>本当に退会しますか？</strong></h2>
+   <h4>
+    退会すると、会員登録情報や</br>
+    これまでの購入履歴が閲覧できなくなります</br>
+    退会する場合は、「退会する」を押してください
+   </h4>
+  </div>
+  <div class="unsubscribe">
+    <span class="taikai"><%= link_to "退会する",customers_withdraw_path, method: :patch,class: "btn btn-secondary", data: { confirm: '本当に退会しますか？' } %></span>
+    <span class="taikai"><%= link_to "退会しない",customer_path(@customer),class: "btn btn-secondary" %></span>
+  </div>
+</div>

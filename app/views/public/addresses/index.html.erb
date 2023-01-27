@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12"><h4>配送先登録/一覧</h4></div>
+  </div>
+  <div class="row">
+    <%= form_with model: @address, url: addresses_path,method: :POST do |f| %>
+    <div class="col-lg-12">
+      <div style="text-align:center;">
+        <table class="table table-striped">
+          <tr>
+            <td>郵便番号（ハイフンなし）</td>
+            <td><%= f.text_field :postal_code %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= f.text_field :address %></td>
+          </tr>
+          <tr>
+            <td>宛名</td>
+            <td><%= f.text_field :name %></td>
+            <td><%= f.submit '新規登録',class: "btn btn-secondary" %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div style="text-align:center;">
+        <table class="table table-striped">
+         <thead>
+          <td>郵便番号</td>
+          <td>住所</td>
+          <td>宛名</td>
+          <td></td>
+         </thead>
+         <% @addresses.each do |address| %>
+         <tbody>
+          <td><%= address.postal_code %></td>
+          <td><%= address.address %></td>
+          <td><%= address.name %></td>
+          <td>
+           <%= button_to "編集", edit_address_path(address.id),method: :patch %>
+           <%= button_to "削除", address_path(address.id),method: :delete %>
+          </td>
+          <% end %>
+         </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
