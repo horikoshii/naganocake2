@@ -41,7 +41,7 @@
           <td><%= address.address %></td>
           <td><%= address.name %></td>
           <td>
-           <%= button_to "編集", edit_address_path(address.id),method: :patch %>
+           <%= button_to "編集", edit_address_path(address.id),method: :get %>
            <%= button_to "削除", address_path(address.id),method: :delete %>
           </td>
           <% end %>
