@@ -1,0 +1,39 @@
+<div class="container">
+ <h2>商品一覧</h2>
+ <div class="row">
+  <div class="col-lg-2">
+   <table class="table table-striped">
+     <thead>
+      <tr>ジャンル検索</tr>
+     </thead>
+
+     <tbody>
+      <% @genres.each do |genre| %>
+      <tr>
+        <td><%= link_to genre.name, serch_path(genre_id: genre.id) %></td>
+      </tr>
+      <% end %>
+     </tbody>
+   </table>
+  </div>
+
+  <div class="col-lg-10">
+   <div class="row">
+     <div class="col-lg-5"><p><%= image_tag @item.image, size: "350x300" %></p></div>
+     <div class="col-lg-5">
+       <h3><strong><%= @item.name %></strong></h3>
+       <h4><%= @item.introduction %></h4>
+       <h4><%= @item.price %>(税込)</h4>
+       <div class="col-lg-2">
+        <%= form_with model: @cart_item, url:cart_items_path,method: :POST do |f| %>
+        <p><%= f.select :amount, *[1..10] %></p>
+        <p><%= f.hidden_field :item_id, :value => @item.id %></p>
+        <p><%= f.submit 'カートに入れる' %></p>
+        <% end %>
+       </div>
+       </div>
+      </div>
+     </div>
+   </div>
+  </div>
+ </div>
