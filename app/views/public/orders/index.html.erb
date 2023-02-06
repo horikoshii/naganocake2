@@ -1,0 +1,36 @@
+<div class="container">
+ <div class="row">
+   <div class="col-lg-12"><h4>注文履歴一覧</h4></div>
+ </div>
+ <div class="row">
+  <div class="col-lg-12">
+   <table class="table table-striped">
+     <thead>
+      <tr>
+        <td>注文日</td>
+        <td>配送先</td>
+        <td>注文商品</td>
+        <td>支払い金額</td>
+        <td>ステータス</td>
+        <td>注文詳細</td>
+      </tr>
+     </thead>
+     <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+        <td><%= order.address %><br>
+        <%= order.name %></td>
+        <td><% order.order_details.each do |order_detail| %>
+        <%= order_detail.item.name %><br>
+        <% end %></td>
+        <td><%= (order.order_details.inject(0) { |sum, order_detail| sum + order_detail.subtotal } + 800).round.to_s(:delimited) %></td>
+        <td></td>
+        <td><%= button_to "表示する", order_path(order.id),method: :get %></td>
+      </tr>
+      <% end %>
+     </tbody>
+   </table>
+  </div>
+ </div>
+</div>

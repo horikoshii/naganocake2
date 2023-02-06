@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     get "item/index" => "items#serch",as: "serch"
     get "customers/my_page" => "customers#show", as: "my_page"
     get "customers/unsubscribe" => "customers#unsubscribe"
+    get "orders/comfirm" => "orders#comfirm"
+    get "orders/complete" => "orders#complete"
+    post "orders/complete" => "orders#complete"
     delete "cart_items/destroy_all" => "cart_items#destroy_all"
     patch "customers/withdraw" => "customers#withdraw"
     resources :items
@@ -26,7 +29,7 @@ Rails.application.routes.draw do
     resources :customers,only: [:show,:edit,:update,:unsubscribe,:withdraw]
     resources :genres
     resources :order_details
-    resources :orders
+    resources :orders,only: [:new,:create,:index,:show,:comfirm,:complete]
   end
 
   namespace :admin do
