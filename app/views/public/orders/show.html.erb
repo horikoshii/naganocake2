@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+     <h4>注文履歴詳細</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <strong>注文情報</strong>
+      <table class="table table-striped">
+        <tr>
+          <td>注文日</td>
+          <td><%= @order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+        </tr>
+        <tr>
+          <td>配送先</td>
+          <td><%= @order.address %></td>
+        </tr>
+        <tr>
+          <td>支払い方法</td>
+          <td><%= @order.payment_method_i18n %></td>
+        </tr>
+        <tr>
+          <td>ステータス</td>
+          <td><%= @order.status_i18n %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-lg-4">
+      <strong>請求情報</strong>
+      <table class="table table-striped">
+        <tr>
+          <td>商品合計</td>
+          <td><%= @subtotal.round.to_s(:delimited)%></td>
+        </tr>
+        <tr>
+          <td>配送料</td>
+          <td>800円</td>
+        </tr>
+        <tr>
+          <td>ご請求額</td>
+          <td><%= @total.round.to_s(:delimited)%></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
